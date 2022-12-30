@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post list</title>
+</head>
+<body>
+<h1>List</h1>
+{% if post_list %}
+<div>
+    {% for post in post_list %}
+    <p><a href="{% url 'post_detail' post.id %}">{{ post.title}}</a></p>
+    <p> {{ post.author }} </p>
+    <p> {{ post.text }} </p>
+    {% endfor %}
+</div>
+{% else %}
+<p>Post object is empty</p>
+{% endif %}
+<p> <a href="{% url 'login' %}">Login</a></p>
+
+</body>
+</html>
